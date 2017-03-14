@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>滑动菜单</title>
+	<style type="text/css">
+		body,ul,li{
+           margin:0px;
+           padding:0px;
+           font:18px/1.5em "微软雅黑";
+           color:#fff;
+		}
+		#box{
+			width:502px;
+			margin:0px auto;
+			border: 1px solid #f00;/*这个可以去掉*/
+			margin-top: 100px;
+		}
+		ul{
+			list-style: none;
+		}
+		ul div{
+			width:502px;
+			height:300px;
+			text-align: center;
+			background: #090;
+			display: none;
+		}
+		ul li.btn a{
+		    display: inline-block;
+			width:500px;
+			height:50px;
+			background: #e29811;
+			border-top: 1px solid #ec2089;
+			border-right: 1px solid #ec2089;
+			border-left: 1px solid #ec2089;
+			text-decoration: none;
+			color:#ccc;
+		}
+		ul li.btn a.ls{
+			border-bottom:1px solid #ec2089;
+		}
+	</style>
+	<script type="text/javascript" src="js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript">
+    	$(function(){
+           $("#box li.btn").mouseover(function(){
+           	$(this).next().children().slideDown(900).end().end().siblings(".btn").next().children().slideUp(900);
+           });
+           $("#box li.btn").next().mouseout(function(){
+           	$(this).children().slideUp(900);
+           });
+    	});
+    </script>
+</head>
+<body>
+	<div id="box">
+		<ul>
+			<li class="btn"><a href="javascript:">菜单1</a></li>
+			<li>
+				<div>
+					第一个菜单显示的内容是：体育；
+				</div>
+			</li>
+			<li class="btn"><a href="javascript:">菜单2</a></li>
+			<li>
+				<div>
+					第二个菜单显示的内容是：娱乐；
+				</div>
+			</li>
+			<li class="btn"><a href="javascript:">菜单3</a></li>
+			<li>
+				<div>
+					第三个菜单显示的内容是：电影；
+				</div>
+			</li>
+			<li class="btn"><a href="javascript:" class="ls">菜单4</a></li>
+			<li>
+				<div>
+					第四个菜单显示的内容是：新闻；
+				</div>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
